@@ -20,6 +20,10 @@ const config: Config = {
         accentDark: "#ffdb4d",
         gray: "#747474",
       },
+      fontFamily: {
+        inter: ["var(--font-inter)", "sans-serif"],
+        manrope: ["var(--font-manrope)", "sans-serif"],
+      },
     },
   },
   plugins: [],
