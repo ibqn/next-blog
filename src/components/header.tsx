@@ -1,5 +1,11 @@
+import { Logo } from "./logo"
+
 type Props = {}
 
 export const Header = (props: Props) => {
-  return <div>Header</div>
+  return (
+    <header className="w-full items-center justify-between p-4 px-10">
+      <Logo />
+    </header>
+  )
 }
