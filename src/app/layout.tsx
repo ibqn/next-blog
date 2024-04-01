@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Manrope } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/utils"
+import { Header } from "@/components/header"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,7 +28,16 @@ type Props = Readonly<{
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body className={cn(inter.variable, manrope.variable)}>{children}</body>
+      <body
+        className={cn(
+          inter.variable,
+          manrope.variable,
+          "font-manrope bg-light dark:bg-dark"
+        )}
+      >
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
