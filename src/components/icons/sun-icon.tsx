@@ -13,10 +13,10 @@ export const SunIcon = (props: IconProps) => {
       <g
         fill="none"
         stroke="currentColor"
-        stroke-dasharray="2"
-        stroke-dashoffset="2"
-        stroke-linecap="round"
-        stroke-width="2"
+        strokeDasharray="2"
+        strokeDashoffset="2"
+        strokeLinecap="round"
+        strokeWidth="2"
       >
         <path d="M0 0">
           <animate
@@ -80,9 +80,9 @@ export const SunIcon = (props: IconProps) => {
       <g
         fill="currentColor"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
       >
         <path d="M7 6 C7 12.08 11.92 17 18 17 C18.53 17 19.05 16.96 19.56 16.89 C17.95 19.36 15.17 21 12 21 C7.03 21 3 16.97 3 12 C3 8.83 4.64 6.05 7.11 4.44 C7.04 4.95 7 5.47 7 6 Z" />
         <set attributeName="opacity" begin="0.6s" to="0" />
