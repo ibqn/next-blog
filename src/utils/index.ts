@@ -1,2 +1,7 @@
 export { cn } from "./class-names"
-export { postFilePaths, POSTS_PATH } from "./mdx-utils"
+export {
+  type FrontMatter,
+  getPostSlugs,
+  getPostFilePaths,
+  POSTS_PATH,
+} from "./mdx-utils"
