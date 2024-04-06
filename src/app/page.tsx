@@ -1,11 +1,18 @@
-import { getPostSlugs } from "@/utils"
+import { CoverSection } from "@/components/home/cover-section"
+import { getAllPostsMetadata, getPostSlugs, sortPostsMetadata } from "@/utils"
 
 export default async function Home() {
   const postSlugs = getPostSlugs()
 
+  const postMetadata = await getAllPostsMetadata()
+  const sortedPostMetadata = sortPostsMetadata(postMetadata)
+  const [latestPostMetadata] = sortedPostMetadata.slice(0, 1)
+
   console.log("postSlugs", postSlugs)
 
   return (
-    <main className="flex flex-col items-center justify-between">main</main>
+    <main className="flex flex-col items-center justify-between">
+      <CoverSection latestPostMetadata={latestPostMetadata} />
+    </main>
   )
 }

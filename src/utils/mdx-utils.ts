@@ -1,6 +1,7 @@
 import fs from "fs"
-import { compileMDX } from "next-mdx-remote/rsc"
 import path from "path"
+import { compileMDX } from "next-mdx-remote/rsc"
+import { compareDesc, parseISO } from "date-fns"
 
 export type FrontMatter = {
   title: string
@@ -52,4 +53,12 @@ export const getAllPostsMetadata = async () => {
   )
 
   return metadata
+}
+
+export const sortPostsMetadata = (postMetadata: FrontMatter[]) => {
+  return postMetadata
+    .slice()
+    .sort((a, b) =>
+      compareDesc(parseISO(a.publishedAt), parseISO(b.publishedAt))
+    )
 }
