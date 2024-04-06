@@ -12,6 +12,7 @@ export type FrontMatter = {
   author: string
   isPublished: boolean
   tags: string[]
+  slug: string
 }
 
 export const POSTS_PATH = path.join(process.cwd(), "src", "content")
@@ -39,7 +40,7 @@ export const getPostMetadata = async (slug: string) => {
     options: { parseFrontmatter: true },
   })
 
-  return frontmatter
+  return { ...frontmatter, slug }
 }
 
 export const getAllPostsMetadata = async () => {
