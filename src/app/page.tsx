@@ -1,4 +1,4 @@
-import { CoverSection } from "@/components/home/cover-section"
+import { FeaturedPosts, CoverSection } from "@/components/home"
 import { getAllPostsMetadata, getPostSlugs, sortPostsMetadata } from "@/utils"
 
 export default async function Home() {
@@ -13,6 +13,7 @@ export default async function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
       <CoverSection latestPostMetadata={latestPostMetadata} />
+      <FeaturedPosts featuredPostsMetadata={sortedPostMetadata} />
     </main>
   )
 }
