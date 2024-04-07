@@ -15,24 +15,26 @@ export const BlogLayoutOne = ({ featuredPostMetadata }: Props) => {
     <div className="overflow-hidden rounded-xl">
       <Image
         src={image}
-        alt="Cover Image"
+        alt={title}
         fill
-        className="h-full w-full rounded-3xl object-cover object-center"
+        className="h-full w-full rounded-3xl object-fill object-center"
       />
       <div className="absolute inset-0 h-full rounded-3xl bg-gradient-to-b from-transparent from-0% to-dark/90"></div>
 
-      <div className="z-10 flex w-3/4 flex-col items-start justify-center p-16 text-light">
-        <Tag link={`/category/${tag}`} tag={tag} />
+      <div className="absolute bottom-0 p-10">
+        <Tag
+          link={`/category/${tag}`}
+          tag={tag}
+          className="border px-6 py-2 text-sm"
+        />
 
-        <Link href={`/blog/${slug}`} className="mt-6">
-          <h1 className="text-4xl font-bold capitalize">
+        <Link href={`/blog/${slug}`}>
+          <h1 className="mt-4 text-2xl font-bold capitalize text-light">
             <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_6px]">
               {title}
             </span>
           </h1>
         </Link>
-
-        <p className="mt-4 font-inter text-xl">{description}</p>
       </div>
     </div>
   )
