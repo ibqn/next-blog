@@ -44,7 +44,7 @@ devDependencies:
     specifier: 14.2.1
     version: 14.2.1(eslint@8.57.0)(typescript@5.4.5)
   postcss:
-    specifier: ^8
+    specifier: ^8.4.38
     version: 8.4.38
   prettier-plugin-tailwindcss:
     specifier: ^0.5.13
