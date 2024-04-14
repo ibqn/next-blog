@@ -22,7 +22,7 @@ export const getPostFilePaths = () =>
 
 export const getPostSlugs = () =>
   fs.readdirSync(POSTS_PATH).filter((file) => {
-    console.log("file", file)
+    // console.log("file", file)
 
     if (!fs.statSync(path.join(POSTS_PATH, file)).isDirectory()) {
       return false
