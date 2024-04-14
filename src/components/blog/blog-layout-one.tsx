@@ -4,20 +4,20 @@ import Link from "next/link"
 import { type FrontMatter } from "@/utils"
 
 type Props = {
-  featuredPostMetadata: FrontMatter
+  postMetadata: FrontMatter
 }
 
-export const BlogLayoutOne = ({ featuredPostMetadata }: Props) => {
-  const { title, description, image, tags, slug } = featuredPostMetadata
+export const BlogLayoutOne = ({ postMetadata }: Props) => {
+  const { title, image, tags, slug } = postMetadata
   const tag = tags[0]
 
   return (
-    <div className="overflow-hidden rounded-xl">
+    <div className="group relative flex-1 overflow-hidden rounded-3xl">
       <Image
         src={image}
         alt={title}
         fill
-        className="h-full w-full rounded-3xl object-fill object-center"
+        className="object-fill object-center transition-all duration-300 ease-in-out group-hover:scale-105"
       />
       <div className="absolute inset-0 h-full rounded-3xl bg-gradient-to-b from-transparent from-0% to-dark/90"></div>
 
@@ -30,7 +30,7 @@ export const BlogLayoutOne = ({ featuredPostMetadata }: Props) => {
 
         <Link href={`/blog/${slug}`}>
           <h1 className="mt-4 text-2xl font-bold capitalize text-light">
-            <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_6px]">
+            <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-[length:100%_6px]">
               {title}
             </span>
           </h1>
