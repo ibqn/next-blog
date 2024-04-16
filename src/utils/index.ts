@@ -5,5 +5,5 @@ export {
   getPostFilePaths,
   getAllPostsMetadata,
   sortPostsMetadata,
-  POSTS_PATH,
+  getPostsPath,
 } from "./mdx-utils"

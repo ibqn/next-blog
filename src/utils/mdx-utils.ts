@@ -1,7 +1,7 @@
-import fs from "fs"
-import path from "path"
 import { compileMDX } from "next-mdx-remote/rsc"
 import { compareDesc, parseISO } from "date-fns"
+import fs from "fs"
+import path from "path"
 
 export type FrontMatter = {
   title: string
@@ -15,24 +15,24 @@ export type FrontMatter = {
   slug: string
 }
 
-export const POSTS_PATH = path.join(process.cwd(), "src", "content")
+export const getPostsPath = () => path.join(process.cwd(), "src", "content")
 
 export const getPostFilePaths = () =>
-  fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path))
+  fs.readdirSync(getPostsPath()).filter((path) => /\.mdx?$/.test(path))
 
 export const getPostSlugs = () =>
-  fs.readdirSync(POSTS_PATH).filter((file) => {
-    // console.log("file", file)
+  fs.readdirSync(getPostsPath()).filter((file) => {
+    console.log("file", file)
 
-    if (!fs.statSync(path.join(POSTS_PATH, file)).isDirectory()) {
+    if (!fs.statSync(path.join(getPostsPath(), file)).isDirectory()) {
       return false
     }
-    const postFilePath = path.join(POSTS_PATH, file, `index.mdx`)
+    const postFilePath = path.join(getPostsPath(), file, `index.mdx`)
     return fs.statSync(postFilePath).isFile()
   })
 
 export const getPostMetadata = async (slug: string) => {
-  const postFilePath = path.join(POSTS_PATH, slug, `index.mdx`)
+  const postFilePath = path.join(getPostsPath(), slug, `index.mdx`)
   const source = fs.readFileSync(postFilePath)
 
   const { frontmatter } = await compileMDX<FrontMatter>({
