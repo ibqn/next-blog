@@ -1,12 +1,16 @@
 "use client"
 
 import { ThemeProvider } from "next-themes"
-import { ReactNode } from "react"
+import { type ReactNode } from "react"
 
-type Props = {
+type Props = Readonly<{
   children: ReactNode
-}
+}>
 
 export const Providers = ({ children }: Props) => {
-  return <ThemeProvider>{children}</ThemeProvider>
+  return (
+    <ThemeProvider enableSystem={false} attribute="class">
+      {children}
+    </ThemeProvider>
+  )
 }
