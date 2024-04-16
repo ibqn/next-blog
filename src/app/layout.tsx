@@ -5,6 +5,7 @@ import { cn } from "@/utils"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Providers } from "@/components/providers"
+import { type ReactNode } from "react"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,22 +25,20 @@ export const metadata: Metadata = {
 }
 
 type Props = Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>
 
 export default async function RootLayout({ children }: Props) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          inter.variable,
-          manrope.variable,
-          "bg-light font-manrope dark:bg-dark"
-        )}
-      >
-        <Header />
-        <Providers>{children}</Providers>
-        <Footer />
+      <body className={cn(inter.variable, manrope.variable)}>
+        <Providers>
+          <div className="bg-light font-manrope dark:bg-dark">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   )
