@@ -31,7 +31,7 @@ export const Header = (props: Props) => {
           <TwitterIcon />
         </a>
         <a href="#">
-          <GithubIcon />
+          <GithubIcon className="dark:fill-light" />
         </a>
         <a href="#">
           <DribbleIcon />
