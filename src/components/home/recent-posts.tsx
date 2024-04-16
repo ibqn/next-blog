@@ -1,4 +1,4 @@
-import { FrontMatter } from "@/utils"
+import type { FrontMatter } from "@/mdx-utils"
 import Link from "next/link"
 import { BlogLayoutThree } from "@/components/blog"
 

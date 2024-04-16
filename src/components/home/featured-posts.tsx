@@ -1,4 +1,4 @@
-import { type FrontMatter } from "@/utils"
+import { type FrontMatter } from "@/mdx-utils"
 import { BlogLayoutOne, BlogLayoutTwo } from "@/components/blog"
 import assert from "assert"
 
