@@ -6,8 +6,11 @@ type Props = {}
 
 export const Logo = (props: Props) => {
   return (
-    <Link href="/" className="text-dark flex items-center gap-4">
-      <div className="border-dark w-16 overflow-hidden rounded-full border border-solid">
+    <Link
+      href="/"
+      className="flex items-center gap-4 text-dark dark:text-light"
+    >
+      <div className="w-16 overflow-hidden rounded-full border border-solid border-dark dark:border-light">
         <Image
           className="h-auto w-full rounded-full"
           src={profileImage}
