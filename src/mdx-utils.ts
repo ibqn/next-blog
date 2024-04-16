@@ -1,3 +1,5 @@
+import "server-only"
+
 import { compileMDX } from "next-mdx-remote/rsc"
 import { compareDesc, parseISO } from "date-fns"
 import fs from "fs"
@@ -22,7 +24,7 @@ export const getPostFilePaths = () =>
 
 export const getPostSlugs = () =>
   fs.readdirSync(getPostsPath()).filter((file) => {
-    console.log("file", file)
+    // console.log("file", file)
 
     if (!fs.statSync(path.join(getPostsPath(), file)).isDirectory()) {
       return false
