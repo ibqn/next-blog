@@ -1,6 +1,14 @@
 "use client"
 
 import { useForm } from "react-hook-form"
+import {
+  DribbleIcon,
+  GithubIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "@/components/icons"
+import { format } from "date-fns"
+import Link from "next/link"
 
 type Props = {}
 
@@ -40,7 +48,7 @@ export const Footer = (props: Props) => {
           type="text"
           placeholder="Enter your Email"
           {...register("email", { required: true, maxLength: 80 })}
-          className="mr-2 w-full border-0 border-b bg-transparent pb-1 text-dark focus:border-dark focus:ring-0"
+          className="mr-2 w-full border-0 border-b bg-transparent pb-1 pl-0 text-dark focus:border-dark focus:ring-0"
         />
 
         <input
@@ -49,7 +57,32 @@ export const Footer = (props: Props) => {
         />
       </form>
 
-      <div className="mt-8 flex items-center"></div>
+      <div className="mt-8 flex flex-row gap-4">
+        <a href="#">
+          <LinkedinIcon />
+        </a>
+        <a href="#">
+          <TwitterIcon />
+        </a>
+        <a href="#">
+          <GithubIcon className="fill-light" />
+        </a>
+        <a href="#">
+          <DribbleIcon />
+        </a>
+      </div>
+
+      <div className="relative mt-24 flex w-full flex-row items-center justify-between border-t border-solid border-light px-8 py-6 font-medium">
+        <span className="text-center">
+          &copy; {format(new Date(), "yyyy")} ibqn. All rights reserved.
+        </span>
+        <Link href="/sitemap.xml" className="text-center">
+          Sitemap
+        </Link>
+        <div className="text-center">
+          Made with <span className="text-red-500">&hearts;</span> by ibqn
+        </div>
+      </div>
     </footer>
   )
 }
