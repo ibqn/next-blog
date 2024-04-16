@@ -1,7 +1,12 @@
 import Link from "next/link"
-import { Logo } from "./logo"
-import { DribbleIcon, GithubIcon, LinkedinIcon, TwitterIcon } from "./icons"
-import { SunIcon } from "./icons/sun-icon"
+import { Logo } from "@/components/logo"
+import {
+  DribbleIcon,
+  GithubIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "@/components/icons"
+import { ThemeSwitch } from "@/components/theme-switch"
 
 type Props = {}
 
@@ -14,9 +19,8 @@ export const Header = (props: Props) => {
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
-        <button>
-          <SunIcon className="h-6 w-6" />
-        </button>
+
+        <ThemeSwitch />
       </nav>
 
       <div className="flex flex-row gap-4">
