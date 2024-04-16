@@ -1,4 +1,4 @@
-import { type FrontMatter } from "@/utils"
+import { type FrontMatter } from "@/mdx-utils"
 import Image from "next/image"
 import Link from "next/link"
 import { Tag } from "@/components/elements"

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Tag } from "@/components/elements"
 import Link from "next/link"
-import { type FrontMatter } from "@/utils"
+import { type FrontMatter } from "@/mdx-utils"
 
 type Props = {
   postMetadata: FrontMatter

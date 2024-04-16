@@ -1,5 +1,9 @@
 import { FeaturedPosts, CoverSection, RecentPosts } from "@/components/home"
-import { getAllPostsMetadata, getPostSlugs, sortPostsMetadata } from "@/utils"
+import {
+  getAllPostsMetadata,
+  getPostSlugs,
+  sortPostsMetadata,
+} from "@/mdx-utils"
 
 export default async function Home() {
   const postSlugs = getPostSlugs()

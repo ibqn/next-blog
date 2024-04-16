@@ -1,4 +1,4 @@
-import { type FrontMatter, POSTS_PATH, getPostSlugs } from "@/utils"
+import { type FrontMatter, getPostsPath, getPostSlugs } from "@/mdx-utils"
 import fs from "fs"
 import path from "path"
 import { compileMDX } from "next-mdx-remote/rsc"
@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPage({ params }: BlogProps) {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}`, `index.mdx`)
+  const postFilePath = path.join(getPostsPath(), `${params.slug}`, `index.mdx`)
   const source = fs.readFileSync(postFilePath)
 
   const { content, frontmatter } = await compileMDX<FrontMatter>({
