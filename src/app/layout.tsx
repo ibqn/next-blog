@@ -4,6 +4,7 @@ import "./globals.css"
 import { cn } from "@/utils"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { Providers } from "@/components/providers"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,9 +27,9 @@ type Props = Readonly<{
   children: React.ReactNode
 }>
 
-export default function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           inter.variable,
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: Props) {
         )}
       >
         <Header />
-        {children}
+        <Providers>{children}</Providers>
         <Footer />
       </body>
     </html>
