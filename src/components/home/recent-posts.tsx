@@ -20,7 +20,7 @@ export const RecentPosts = ({ recentPostsMetadata }: Props) => {
         </Link>
       </div>
 
-      <div className="mt-16 grid grid-cols-3 grid-rows-3 gap-16">
+      <div className="mt-16 grid grid-cols-3 gap-16">
         {recentPostsMetadata.map((metadata) => (
           <article key={metadata.slug} className="relative">
             <BlogLayoutThree postMetadata={metadata} />
