@@ -4,6 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc"
 import { compareDesc, parseISO } from "date-fns"
 import fs from "node:fs"
 import path from "node:path"
+import { slug } from "github-slugger"
 
 export type FrontMatter = {
   title: string
@@ -64,4 +65,23 @@ export const sortPostsMetadata = (postMetadata: FrontMatter[]) => {
     .sort((a, b) =>
       compareDesc(parseISO(a.publishedAt), parseISO(b.publishedAt))
     )
+}
+
+export type TableOfContents = {
+  level: number
+  title?: string
+  slugTitle?: string
+}
+
+export const extractTableOfContents = (source: string): TableOfContents[] => {
+  const headings = source.matchAll(/\n(?<flag>#{1,6})\s+(?<title>.+)/g)
+
+  return Array.from(headings).map(({ groups }) => {
+    const { flag, title } = groups ?? {}
+
+    const level = flag?.length ?? 0
+    const slugTitle = title ? slug(title) : undefined
+
+    return { level, title, slugTitle }
+  })
 }
