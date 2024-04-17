@@ -14,7 +14,7 @@ export const BlogDetails = ({ postMetadata, readingTime }: Props) => {
   const tag = tags[0]
 
   return (
-    <div className="mx-10 flex flex-row flex-wrap items-center justify-around gap-3 rounded-lg bg-accent px-10 py-2 text-xl font-medium text-light">
+    <div className="mx-10 flex flex-row flex-wrap items-center justify-around gap-3 rounded-lg bg-accent px-10 py-4 text-xl font-medium text-light">
       <time>{format(parseISO(publishedAt), "MMMM dd, yyyy")}</time>
       <span>10 Views</span>
       <div>{readingTime.text}</div>
