@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Tag } from "@/components/elements"
 import { format } from "date-fns"
+import { slug as sluggify } from "github-slugger"
 
 type Props = {
   postMetadata: FrontMatter
@@ -30,7 +31,7 @@ export const BlogLayoutTwo = ({ postMetadata }: Props) => {
 
       <div className="col-span-8 w-full">
         <Tag
-          link={`/category/${tag}`}
+          link={`/category/${sluggify(tag)}`}
           tag={tag}
           className="border-none bg-inherit px-0 text-sm font-semibold uppercase text-accent"
         />

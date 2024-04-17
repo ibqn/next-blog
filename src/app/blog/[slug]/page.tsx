@@ -17,6 +17,7 @@ import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
 import { type ComponentProps } from "react"
+import { slug as sluggify } from "github-slugger"
 
 type BlogProps = { params: { slug: string } }
 
@@ -71,7 +72,7 @@ export default async function BlogPage({ params }: BlogProps) {
         <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center">
           <Tag
             tag={tag}
-            link={`/category/${tag}`}
+            link={`/category/${sluggify(tag)}`}
             className="px-6 py-2 text-sm"
           />
           <h1 className="relative mt-6 w-5/6 text-5xl font-semibold capitalize leading-normal text-light">

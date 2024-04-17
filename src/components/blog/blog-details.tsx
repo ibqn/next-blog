@@ -2,6 +2,7 @@ import type { FrontMatter } from "@/mdx-utils"
 import { format, parseISO } from "date-fns"
 import Link from "next/link"
 import type { ReadTimeResults } from "reading-time"
+import { slug as sluggify } from "github-slugger"
 
 type Props = {
   postMetadata: FrontMatter
@@ -18,7 +19,7 @@ export const BlogDetails = ({ postMetadata, readingTime }: Props) => {
       <time>{format(parseISO(publishedAt), "MMMM dd, yyyy")}</time>
       <span>10 Views</span>
       <div>{readingTime.text}</div>
-      <Link href={`/category/${tag}`}>#{tag}</Link>
+      <Link href={`/category/${sluggify(tag)}`}>#{tag}</Link>
     </div>
   )
 }

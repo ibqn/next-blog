@@ -2,6 +2,7 @@ import type { FrontMatter } from "@/mdx-utils"
 import Image from "next/image"
 import { Tag } from "@/components/elements"
 import Link from "next/link"
+import { slug as sluggify } from "github-slugger"
 
 type Props = {
   latestPostMetadata: FrontMatter
@@ -24,7 +25,7 @@ export const CoverSection = async (props: Props) => {
         <div className="absolute inset-0 h-full rounded-3xl bg-gradient-to-b from-transparent from-0% to-dark/90"></div>
 
         <div className="z-10 flex w-3/4 flex-col items-start justify-center p-16 text-light">
-          <Tag link={`/category/${tag}`} tag={tag} />
+          <Tag link={`/category/${sluggify(tag)}`} tag={tag} />
 
           <Link href={`/blog/${slug}`} className="mt-6">
             <h1 className="text-4xl font-bold capitalize">

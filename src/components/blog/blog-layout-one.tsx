@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Tag } from "@/components/elements"
 import Link from "next/link"
 import { type FrontMatter } from "@/mdx-utils"
+import { slug as sluggify } from "github-slugger"
 
 type Props = {
   postMetadata: FrontMatter
@@ -23,7 +24,7 @@ export const BlogLayoutOne = ({ postMetadata }: Props) => {
 
       <div className="absolute bottom-0 p-10">
         <Tag
-          link={`/category/${tag}`}
+          link={`/category/${sluggify(tag)}`}
           tag={tag}
           className="border px-6 py-2 text-sm"
         />
