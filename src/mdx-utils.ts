@@ -2,8 +2,8 @@ import "server-only"
 
 import { compileMDX } from "next-mdx-remote/rsc"
 import { compareDesc, parseISO } from "date-fns"
-import fs from "fs"
-import path from "path"
+import fs from "node:fs"
+import path from "node:path"
 
 export type FrontMatter = {
   title: string
