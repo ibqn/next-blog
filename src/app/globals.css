@@ -46,3 +46,41 @@ pre {
 pre [data-line] {
   padding: 0 1rem;
 }
+
+[data-highlighted-line] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 2px;
+  padding-left: 0;
+  padding-right: 4px;
+  border-radius: 2px;
+  border-left: 2px solid #7b00d3;
+}
+
+[data-highlighted-chars] {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+[data-rehype-pretty-code-figure] {
+  position: relative;
+}
+
+[data-rehype-pretty-code-title] {
+  position: absolute;
+  right: 0;
+  background-color: #7b00d3;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 1rem;
+  border-end-start-radius: 4px;
+}
+
+[data-rehype-pretty-code-caption] {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: #747474;
+}
