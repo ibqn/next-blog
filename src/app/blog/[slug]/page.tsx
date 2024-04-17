@@ -1,17 +1,22 @@
-import { type FrontMatter, getPostsPath, getPostSlugs } from "@/mdx-utils"
+import {
+  type FrontMatter,
+  getPostsPath,
+  getPostSlugs,
+  extractTableOfContents,
+} from "@/mdx-utils"
 import fs from "node:fs"
 import path from "node:path"
 import { compileMDX } from "next-mdx-remote/rsc"
 import { Tag } from "@/components/elements"
 import Image from "next/image"
-import { BlogDetails } from "@/components/blog"
+import { BlogDetails, BlogToc } from "@/components/blog"
 import estimateReadingTime from "reading-time"
 import { cn } from "@/utils"
 import remarkGfm from "remark-gfm"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
-import { ComponentProps } from "react"
+import { type ComponentProps } from "react"
 
 type BlogProps = { params: { slug: string } }
 
@@ -49,6 +54,8 @@ export default async function BlogPage({ params }: BlogProps) {
 
   const readingTime = estimateReadingTime(source.toString("utf8"))
 
+  const toc = extractTableOfContents(source.toString("utf8"))
+
   return (
     <article>
       <div className="relative mb-8 h-[70vh] w-full bg-dark text-center">
@@ -76,7 +83,9 @@ export default async function BlogPage({ params }: BlogProps) {
       <BlogDetails postMetadata={frontmatter} readingTime={readingTime} />
 
       <div className="mt-8 grid grid-cols-12 gap-16 px-10">
-        <div className="col-span-4">toc</div>
+        <div className="col-span-4">
+          <BlogToc toc={toc} />
+        </div>
         <div
           className={cn(
             "prose col-span-8 max-w-max font-inter lg:prose-xl",
