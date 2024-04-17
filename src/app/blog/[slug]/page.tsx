@@ -1,6 +1,6 @@
 import { type FrontMatter, getPostsPath, getPostSlugs } from "@/mdx-utils"
-import fs from "fs"
-import path from "path"
+import fs from "node:fs"
+import path from "node:path"
 import { compileMDX } from "next-mdx-remote/rsc"
 import { Tag } from "@/components/elements"
 import Image from "next/image"
@@ -10,11 +10,13 @@ import { cn } from "@/utils"
 import remarkGfm from "remark-gfm"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypePrettyCode from "rehype-pretty-code"
+import { ComponentProps } from "react"
 
 type BlogProps = { params: { slug: string } }
 
 const components = {
-  Image: () => <div className="bg-red-500">IMAGE</div>,
+  Image: (props: ComponentProps<typeof Image>) => <Image {...props} />,
 }
 
 export async function generateStaticParams() {
@@ -34,6 +36,7 @@ export default async function BlogPage({ params }: BlogProps) {
         rehypePlugins: [
           rehypeSlug,
           [rehypeAutolinkHeadings, { behavior: "append" }],
+          [rehypePrettyCode, { theme: "github-dark", grid: false }],
         ],
       },
     },
@@ -76,8 +79,8 @@ export default async function BlogPage({ params }: BlogProps) {
         <div className="col-span-4">toc</div>
         <div
           className={cn(
-            "prose lg:prose-xl  col-span-8 max-w-max font-inter",
-            "prose-blockquote:bg-accent/20 prose-blockquote:p-2 prose-blockquote:px-6 prose-blockquote:border-accent",
+            "prose col-span-8 max-w-max font-inter lg:prose-xl",
+            "prose-blockquote:border-accent prose-blockquote:bg-accent/20 prose-blockquote:p-2 prose-blockquote:px-6",
             "prose-blockquote:rounded-r-lg prose-blockquote:not-italic",
             "prose-li:marker:text-accent"
           )}
