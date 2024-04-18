@@ -68,15 +68,16 @@ export const getAllCategories = async () => {
 
 export const getPostsMetadataByCategory = async (category: string) => {
   const metadata = await getAllPostsMetadata()
+  const categoryLowerCased = category.toLowerCase()
 
-  if (category === "all") {
+  if (categoryLowerCased === "all") {
     return metadata
   }
 
   return metadata.filter((post) =>
     post.tags
-      .map((tag) => sluggify(tag).toLowerCase())
-      .includes(category.toLowerCase())
+      .map((tag) => sluggify(tag.toLowerCase()))
+      .includes(categoryLowerCased)
   )
 }
 
