@@ -4,7 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc"
 import { compareDesc, parseISO } from "date-fns"
 import fs from "node:fs"
 import path from "node:path"
-import { slug } from "github-slugger"
+import { slug as sluggify } from "github-slugger"
 
 export type FrontMatter = {
   title: string
@@ -59,6 +59,27 @@ export const getAllPostsMetadata = async () => {
   return metadata
 }
 
+export const getAllCategories = async () => {
+  const metadata = await getAllPostsMetadata()
+  const categories = metadata.flatMap((post) => post.tags)
+
+  return ["all"].concat(Array.from(new Set(categories)).sort())
+}
+
+export const getPostsMetadataByCategory = async (category: string) => {
+  const metadata = await getAllPostsMetadata()
+
+  if (category === "all") {
+    return metadata
+  }
+
+  return metadata.filter((post) =>
+    post.tags
+      .map((tag) => sluggify(tag).toLowerCase())
+      .includes(category.toLowerCase())
+  )
+}
+
 export const sortPostsMetadata = (postMetadata: FrontMatter[]) => {
   return postMetadata
     .slice()
@@ -80,7 +101,7 @@ export const extractTableOfContents = (source: string): TableOfContents[] => {
     const { flag, title } = groups ?? {}
 
     const level = flag?.length ?? 0
-    const slugTitle = title ? slug(title) : undefined
+    const slugTitle = title ? sluggify(title) : undefined
 
     return { level, title, slugTitle }
   })
