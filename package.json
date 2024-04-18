@@ -11,7 +11,7 @@
   "dependencies": {
     "date-fns": "^3.6.0",
     "github-slugger": "^2.0.0",
-    "next": "14.2.1",
+    "next": "14.2.2",
     "next-mdx-remote": "0.0.0-canary-20240321205249",
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
@@ -34,7 +34,7 @@
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.0",
     "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.1",
+    "eslint-config-next": "14.2.2",
     "postcss": "^8.4.38",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "sharp": "^0.33.3",
