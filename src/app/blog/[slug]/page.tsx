@@ -89,6 +89,7 @@ export default async function BlogPage({ params }: BlogProps) {
         </div>
         <div
           className={cn(
+            "first-letter",
             "prose col-span-8 max-w-max font-inter lg:prose-xl",
             "prose-blockquote:border-accent prose-blockquote:bg-accent/20 prose-blockquote:p-2 prose-blockquote:px-6",
             "prose-blockquote:rounded-r-lg prose-blockquote:not-italic",

@@ -84,3 +84,9 @@ pre [data-line] {
   font-size: 1rem;
   color: #747474;
 }
+
+@layer components {
+  .first-letter > p:first-of-type {
+    @apply first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900 first-line:uppercase first-line:tracking-widest;
+  }
+}
