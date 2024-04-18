@@ -14,7 +14,7 @@ export const ThemeSwitch = (props: Props) => {
     setIsClient(true)
   }, [])
 
-  console.log("theme", theme)
+  // console.log("theme", theme)
 
   const switchTheme = () => {
     setTheme(theme === "light" ? "dark" : "light")
