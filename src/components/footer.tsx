@@ -53,7 +53,8 @@ export const Footer = (props: Props) => {
 
         <input
           type="submit"
-          className="cursor-pointer rounded bg-dark px-3 py-1 font-medium capitalize text-light"
+          value="Subscribe"
+          className="cursor-pointer rounded bg-dark px-4 py-1 font-medium capitalize text-light"
         />
       </form>
 
@@ -77,7 +78,7 @@ export const Footer = (props: Props) => {
           &copy; {format(new Date(), "yyyy")} ibqn. All rights reserved.
         </span>
         <Link href="/sitemap.xml" className="text-center">
-          Sitemap
+          sitemap.xml
         </Link>
         <div className="text-center">
           Made with <span className="text-red-500">&hearts;</span> by ibqn
