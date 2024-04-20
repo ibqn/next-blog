@@ -15,12 +15,12 @@ export const CoverSection = async (props: Props) => {
 
   return (
     <div className="w-full">
-      <article className="relative mx-10 flex h-[85vh] flex-col items-start justify-end">
+      <article className="group relative mx-10 flex h-[85vh] flex-col items-start justify-end overflow-hidden rounded-3xl">
         <Image
           src={image}
           alt="Cover Image"
           fill
-          className="h-full w-full rounded-3xl object-cover object-center"
+          className="h-full w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:scale-105"
         />
         <div className="absolute inset-0 h-full rounded-3xl bg-gradient-to-b from-transparent from-0% to-dark/90"></div>
 
