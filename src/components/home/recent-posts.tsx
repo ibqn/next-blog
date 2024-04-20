@@ -13,7 +13,7 @@ export const RecentPosts = ({ recentPostsMetadata }: Props) => {
         <h2 className="text-4xl font-bold capitalize">Recent Posts</h2>
 
         <Link
-          href={`/categories/all`}
+          href={`/category/all`}
           className="text-lg font-medium capitalize text-accent underline underline-offset-2"
         >
           view all
