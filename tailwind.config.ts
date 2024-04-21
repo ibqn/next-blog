@@ -31,6 +31,15 @@ const config: Config = {
         inter: ["var(--font-inter)", "sans-serif"],
         manrope: ["var(--font-manrope)", "sans-serif"],
       },
+      animation: {
+        roll: "roll 24s infinite linear",
+      },
+      keyframes: {
+        roll: {
+          "0%": { transform: "translate(100%)" },
+          "100%": { transform: "translate(-100%)" },
+        },
+      },
     },
   },
   plugins: [forms, typography],
