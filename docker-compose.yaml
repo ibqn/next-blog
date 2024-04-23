@@ -1,12 +1,12 @@
-version: '3.9'
+name: next-blog
 
 services:
   cache:
-    image: redis:7.2-alpine
+    image: valkey/valkey:7.2-alpine
     restart: always
     ports:
       - '6379:6379'
-    command: redis-server --save 60 1 --loglevel warning --requirepass mypassword
+    command: valkey-server --save 60 1 --loglevel warning --requirepass mypassword
     volumes:
       - cache:/data
 
