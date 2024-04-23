@@ -18,6 +18,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
 import { type ComponentProps } from "react"
 import { slug as sluggify } from "github-slugger"
+import { getViewCount } from "@/redis-utils"
 
 type BlogProps = { params: { slug: string } }
 
@@ -57,6 +58,8 @@ export default async function BlogPage({ params }: BlogProps) {
 
   const toc = extractTableOfContents(source.toString("utf8"))
 
+  const viewCount = await getViewCount(params.slug)
+
   return (
     <article>
       <div className="relative mb-8 h-[70vh] w-full bg-dark text-center">
@@ -81,7 +84,11 @@ export default async function BlogPage({ params }: BlogProps) {
         </div>
       </div>
 
-      <BlogDetails postMetadata={frontmatter} readingTime={readingTime} />
+      <BlogDetails
+        postMetadata={frontmatter}
+        readingTime={readingTime}
+        viewCount={viewCount}
+      />
 
       <div className="mt-8 grid grid-cols-12 gap-16 px-10">
         <div className="col-span-4">
