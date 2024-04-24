@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form"
 import {
-  DribbleIcon,
+  DribbbleIcon,
   GithubIcon,
   LinkedinIcon,
   TwitterIcon,
@@ -69,7 +69,7 @@ export const Footer = (props: Props) => {
           <GithubIcon className="fill-light" />
         </a>
         <a href="#">
-          <DribbleIcon />
+          <DribbbleIcon />
         </a>
       </div>
 
