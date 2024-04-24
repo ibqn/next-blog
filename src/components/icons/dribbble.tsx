@@ -1,6 +1,6 @@
 import { IconProps, extendIconProps } from "./extend-props"
 
-export const DribbleIcon = (props: IconProps) => (
+export const DribbbleIcon = (props: IconProps) => (
   <svg
     {...extendIconProps(props)}
     width="42"

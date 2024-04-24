@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 import {
-  DribbleIcon,
+  DribbbleIcon,
   GithubIcon,
   LinkedinIcon,
   TwitterIcon,
@@ -34,7 +34,7 @@ export const Header = (props: Props) => {
           <GithubIcon className="dark:fill-light" />
         </a>
         <a href="#">
-          <DribbleIcon />
+          <DribbbleIcon />
         </a>
       </div>
     </header>
