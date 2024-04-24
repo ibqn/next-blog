@@ -23,6 +23,7 @@ import { getViewCount } from "@/redis-utils"
 type BlogProps = { params: { slug: string } }
 
 const components = {
+  // eslint-disable-next-line jsx-a11y/alt-text
   Image: (props: ComponentProps<typeof Image>) => <Image {...props} />,
 }
 
