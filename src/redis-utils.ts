@@ -1,13 +1,14 @@
 import "server-only"
 
 import { createClient } from "redis"
+import { env } from "@/env"
 
 export const getViewCount = async (slug: string) => {
   // console.log("slug", slug, "url", process.env.REDIS_URL)
 
   try {
     const client = await createClient({
-      url: process.env.REDIS_URL,
+      url: env.REDIS_URL,
     })
       // .on("error", (error) => console.log("Redis Client Error", error))
       .connect()
