@@ -87,6 +87,7 @@ export async function generateMetadata(
         ...(postMetadata.image ? [postMetadata.image] : []),
         ...(parentMetadata.openGraph?.images ?? []),
       ],
+      authors: [postMetadata.author ?? siteMetadata.author],
     },
   }
 }
