@@ -3,6 +3,7 @@ import {
   getPostsPath,
   getPostSlugs,
   extractTableOfContents,
+  getPostMetadata,
 } from "@/mdx-utils"
 import fs from "node:fs"
 import path from "node:path"
@@ -11,7 +12,7 @@ import { Tag } from "@/components/elements"
 import Image from "next/image"
 import { BlogDetails, BlogToc } from "@/components/blog"
 import estimateReadingTime from "reading-time"
-import { cn } from "@/utils"
+import { cn, siteMetadata } from "@/utils"
 import remarkGfm from "remark-gfm"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
@@ -19,6 +20,9 @@ import rehypePrettyCode from "rehype-pretty-code"
 import { type ComponentProps } from "react"
 import { slug as sluggify } from "github-slugger"
 import { getViewCount } from "@/redis-utils"
+import { Metadata, ResolvingMetadata } from "next"
+import { format, parseISO } from "date-fns"
+import { notFound } from "next/navigation"
 
 type BlogProps = { params: { slug: string } }
 
@@ -31,9 +35,75 @@ export async function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }))
 }
 
+export async function generateMetadata(
+  { params }: BlogProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const parentMetadata = await parent
+
+  let postMetadata
+  try {
+    postMetadata = await getPostMetadata(params.slug)
+  } catch (error) {
+    console.error("metadata error", error)
+
+    return {
+      title: "Post not found",
+      description: "The post you are looking for does not exist.",
+      openGraph: {
+        title: "Post not found",
+        description: "The post you are looking for does not exist.",
+        url: `${siteMetadata.siteUrl}/blog/${params.slug}`,
+        siteName: siteMetadata.title,
+        locale: siteMetadata.locale,
+        type: "article",
+        images: [siteMetadata.socialBanner],
+      },
+    }
+  }
+
+  const publishedAt = format(
+    parseISO(postMetadata.publishedAt),
+    "MMMM dd, yyyy"
+  )
+  const modifiedAt = format(
+    parseISO(postMetadata.updatedAt ?? postMetadata.publishedAt),
+    "MMMM dd, yyyy"
+  )
+
+  return {
+    title: postMetadata.title,
+    description: postMetadata.description,
+    openGraph: {
+      title: postMetadata.title,
+      description: postMetadata.description,
+      url: `${siteMetadata.siteUrl}/blog/${params.slug}`,
+      siteName: siteMetadata.title,
+      locale: siteMetadata.locale,
+      type: "article",
+      publishedTime: publishedAt,
+      modifiedTime: modifiedAt,
+      images: [
+        ...(postMetadata.image ? [postMetadata.image] : []),
+        ...(parentMetadata.openGraph?.images ?? []),
+      ],
+    },
+  }
+}
+
 export default async function BlogPage({ params }: BlogProps) {
-  const postFilePath = path.join(getPostsPath(), `${params.slug}`, `index.mdx`)
-  const source = fs.readFileSync(postFilePath)
+  let source
+  try {
+    const postFilePath = path.join(
+      getPostsPath(),
+      `${params.slug}`,
+      `index.mdx`
+    )
+    source = fs.readFileSync(postFilePath)
+  } catch (error) {
+    console.error("post not found error", error)
+    notFound()
+  }
 
   const { content, frontmatter } = await compileMDX<FrontMatter>({
     source,
