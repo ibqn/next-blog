@@ -21,10 +21,10 @@ export const ContactForm = (props: Props) => {
   } = useForm<ContactForm>()
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
+    console.log("data:", data)
   })
 
-  console.log(errors)
+  // console.log("contact errors", errors)
 
   return (
     <form
