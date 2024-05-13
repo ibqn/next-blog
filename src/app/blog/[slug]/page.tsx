@@ -89,6 +89,12 @@ export async function generateMetadata(
       ],
       authors: [postMetadata.author ?? siteMetadata.author],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: postMetadata.title,
+      description: postMetadata.description,
+      images: [postMetadata.image ?? siteMetadata.socialBanner],
+    },
   }
 }
 

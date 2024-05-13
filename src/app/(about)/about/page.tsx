@@ -6,7 +6,7 @@ type AboutProps = {}
 
 export const metadata = {
   title: "About Me",
-  description: `Here are some details about my self.`,
+  description: `Here are some details about me.`,
 }
 
 export default async function AboutPage(props: AboutProps) {

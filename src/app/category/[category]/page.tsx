@@ -11,6 +11,15 @@ export async function generateStaticParams() {
   }))
 }
 
+export async function generateMetadata({ params }: CategoryProps) {
+  const { category } = params
+
+  return {
+    title: `${category.replaceAll("-", " ")} Blogs`,
+    description: `Learn more about ${category === "all" ? "web development" : category} through our collection of expert blogs and tutorials`,
+  }
+}
+
 export default async function CategoryPage({ params }: CategoryProps) {
   const categories = await getAllCategories()
 
