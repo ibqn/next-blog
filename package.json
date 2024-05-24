@@ -16,7 +16,7 @@
     "github-slugger": "^2.0.0",
     "lucide-react": "^0.379.0",
     "next": "14.2.3",
-    "next-mdx-remote": "0.0.0-canary-20240321205249",
+    "next-mdx-remote": "5.0.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
