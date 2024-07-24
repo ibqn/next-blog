@@ -9,7 +9,7 @@ import fs from "node:fs"
 import path from "node:path"
 import { compileMDX } from "next-mdx-remote/rsc"
 import { Tag } from "@/components/elements"
-import Image from "next/image"
+import Image, { type ImageProps } from "next/image"
 import { BlogDetails, BlogToc } from "@/components/blog"
 import estimateReadingTime from "reading-time"
 import { cn, siteMetadata } from "@/utils"
@@ -17,7 +17,6 @@ import remarkGfm from "remark-gfm"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
-import { type ComponentProps } from "react"
 import { slug as sluggify } from "github-slugger"
 import { getViewCount } from "@/redis-utils"
 import { Metadata, ResolvingMetadata } from "next"
@@ -28,7 +27,7 @@ type BlogProps = { params: { slug: string } }
 
 const components = {
   // eslint-disable-next-line jsx-a11y/alt-text
-  Image: (props: ComponentProps<typeof Image>) => <Image {...props} />,
+  Image: (props: ImageProps) => <Image {...props} />,
 }
 
 export async function generateStaticParams() {
