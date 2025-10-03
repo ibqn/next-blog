@@ -20,8 +20,7 @@ export type FrontMatter = {
 
 export const getPostsPath = () => path.join(process.cwd(), "src", "content")
 
-export const getPostFilePaths = () =>
-  fs.readdirSync(getPostsPath()).filter((path) => /\.mdx?$/.test(path))
+export const getPostFilePaths = () => fs.readdirSync(getPostsPath()).filter((path) => /\.mdx?$/.test(path))
 
 export const getPostSlugs = () =>
   fs.readdirSync(getPostsPath()).filter((file) => {
@@ -74,19 +73,11 @@ export const getPostsMetadataByCategory = async (category: string) => {
     return metadata
   }
 
-  return metadata.filter((post) =>
-    post.tags
-      .map((tag) => sluggify(tag.toLowerCase()))
-      .includes(categoryLowerCased)
-  )
+  return metadata.filter((post) => post.tags.map((tag) => sluggify(tag.toLowerCase())).includes(categoryLowerCased))
 }
 
 export const sortPostsMetadata = (postMetadata: FrontMatter[]) => {
-  return postMetadata
-    .slice()
-    .sort((a, b) =>
-      compareDesc(parseISO(a.publishedAt), parseISO(b.publishedAt))
-    )
+  return postMetadata.slice().sort((a, b) => compareDesc(parseISO(a.publishedAt), parseISO(b.publishedAt)))
 }
 
 export type TableOfContents = {
