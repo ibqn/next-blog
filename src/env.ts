@@ -3,7 +3,9 @@ import { z } from "zod"
 
 export const env = createEnv({
   server: {
-    REDIS_URL: z.string().url(),
+    REDIS_URL: z.url(),
   },
-  experimental__runtimeEnv: {},
+  runtimeEnv: {
+    REDIS_URL: process.env.REDIS_URL,
+  },
 })
