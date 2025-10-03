@@ -14,6 +14,12 @@ const eslintConfig = [
     ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // Disable the rule that flags empty object type {}
+      "@typescript-eslint/no-empty-object-type": "off",
+    },
+  },
 ]
 
 export default eslintConfig
