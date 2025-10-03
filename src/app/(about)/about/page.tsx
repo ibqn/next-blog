@@ -19,7 +19,7 @@ export default async function AboutPage(props: AboutProps) {
         <span>Have a project in mind? Reach out to me</span>
         <Phone size={28} />
         <span>from</span>
-        <Link href="/contact" className="!underline underline-offset-4">
+        <Link href="/contact" className="underline! underline-offset-4">
           here
         </Link>
         <span>and let&apos;s make it happen.</span>

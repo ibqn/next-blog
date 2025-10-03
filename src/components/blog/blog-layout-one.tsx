@@ -20,7 +20,7 @@ export const BlogLayoutOne = ({ postMetadata }: Props) => {
         fill
         className="object-fill object-center transition-all duration-300 ease-in-out group-hover:scale-105"
       />
-      <div className="absolute inset-0 h-full rounded-3xl bg-gradient-to-b from-transparent from-0% to-dark/90"></div>
+      <div className="absolute inset-0 h-full rounded-3xl bg-linear-to-b from-transparent from-0% to-dark/90"></div>
 
       <div className="absolute bottom-0 p-10">
         <Tag
@@ -31,7 +31,7 @@ export const BlogLayoutOne = ({ postMetadata }: Props) => {
 
         <Link href={`/blog/${slug}`}>
           <h1 className="mt-4 text-2xl font-bold capitalize text-light">
-            <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-[length:100%_6px]">
+            <span className="bg-linear-to-r from-accent to-accent bg-size-[0px_6px] bg-bottom-left bg-no-repeat transition-[background-size] duration-500 group-hover:bg-size-[100%_6px]">
               {title}
             </span>
           </h1>

@@ -42,7 +42,7 @@ export const Footer = (props: Props) => {
 
       <form
         onSubmit={onSubmit}
-        className="mx-4 mt-6 flex min-w-[384px] items-stretch rounded bg-light p-2"
+        className="mx-4 mt-6 flex min-w-[384px] items-stretch rounded-sm bg-light p-2"
       >
         <input
           type="text"
@@ -54,7 +54,7 @@ export const Footer = (props: Props) => {
         <input
           type="submit"
           value="Subscribe"
-          className="cursor-pointer rounded bg-dark px-4 py-1 font-medium capitalize text-light"
+          className="cursor-pointer rounded-sm bg-dark px-4 py-1 font-medium capitalize text-light"
         />
       </form>
 

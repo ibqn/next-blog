@@ -11,7 +11,7 @@ export const FormInput = forwardRef<Ref, Props>(
         ref={ref}
         {...props}
         className={cn(
-          "mx-2 border-0 border-b border-gray bg-transparent p-0 outline-none placeholder:text-center placeholder:text-lg focus:border-gray focus:ring-0",
+          "mx-2 border-0 border-b border-gray bg-transparent p-0 outline-hidden placeholder:text-center placeholder:text-lg focus:border-gray focus:ring-0",
           className
         )}
       />

@@ -55,7 +55,7 @@ export const ContactForm = (props: Props) => {
       <input
         type="submit"
         value="send request"
-        className="mt-8 flex cursor-pointer rounded border-2 border-solid border-dark px-8 py-3 text-xl font-medium capitalize"
+        className="mt-8 flex cursor-pointer rounded-sm border-2 border-solid border-dark px-8 py-3 text-xl font-medium capitalize"
       />
     </form>
   )

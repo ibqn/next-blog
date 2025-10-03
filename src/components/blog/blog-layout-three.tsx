@@ -25,7 +25,7 @@ export const BlogLayoutThree = ({ postMetadata }: Props) => {
           width={1200}
           height={1200}
           alt={title}
-          className="aspect-[4/3] h-full w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:scale-105"
+          className="aspect-4/3 h-full w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:scale-105"
         />
       </Link>
 
@@ -38,7 +38,7 @@ export const BlogLayoutThree = ({ postMetadata }: Props) => {
 
         <Link href={`/blog/${slug}`} className="my-1">
           <h2 className="text-lg font-semibold capitalize">
-            <span className="bg-gradient-to-r from-accent/50 to-accent/50 bg-[length:0px_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-[length:100%_6px]">
+            <span className="bg-linear-to-r from-accent/50 to-accent/50 bg-size-[0px_6px] bg-bottom-left bg-no-repeat transition-[background-size] duration-500 group-hover:bg-size-[100%_6px]">
               {title}
             </span>
           </h2>

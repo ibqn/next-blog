@@ -34,7 +34,7 @@ export const Skills = async (props: Props) => {
           <li
             key={index}
             className={cn(
-              "flex rounded border-2 border-solid border-dark px-12 py-4 text-2xl font-semibold capitalize",
+              "flex rounded-sm border-2 border-solid border-dark px-12 py-4 text-2xl font-semibold capitalize",
               "cursor-default transition-all duration-200 hover:scale-105"
             )}
           >
