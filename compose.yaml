@@ -2,7 +2,7 @@ name: next-blog
 
 services:
   cache:
-    image: valkey/valkey:7.2-alpine
+    image: valkey/valkey:9.0-alpine
     restart: unless-stopped
     ports:
       - "6379:6379"
