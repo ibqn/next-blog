@@ -15,7 +15,7 @@ export const getViewCount = async (slug: string) => {
 
     const count = await client.incr(slug)
 
-    await client.disconnect()
+    await client.quit()
 
     return count
   } catch (error) {
