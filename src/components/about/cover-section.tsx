@@ -4,7 +4,7 @@ export const CoverSection = () => {
   return (
     <section className="border-dark text-dark mx-10 flex h-[75hv] flex-row items-center justify-center border-b-2 border-solid">
       <div className="border-dark flex h-full flex-1 justify-center border-r-2 border-solid p-10 px-20">
-        <ProfileImage />
+        <ProfileImage className="h-auto w-full" />
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center px-16 text-left">
