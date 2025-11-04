@@ -6,7 +6,7 @@ export const siteMetadata = {
   language: "en-us",
   theme: "dark",
   siteUrl: "http://localhost:3000",
-  siteLogo: "/logo.png",
+  siteLogo: "/logo.svg",
   socialBanner: "/social-banner.png",
   email: "ibqn@gmail.com",
   github: "https://github.com/ibqn",
