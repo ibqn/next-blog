@@ -2,12 +2,12 @@
   xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="640" viewBox="0 0 640 640" role="img" artist="Katerina Limpitsouni" source="https://undraw.co/">
   <defs>
     <clipPath id="a-506">
-      <circle cx="320" cy="320" r="320" transform="translate(626 151)" fill="none" stroke="#707070" stroke-width="1"/>
+      <circle cx="320" cy="320" r="320" transform="translate(626 151)" fill="none" stroke="#707070" strokeWidth="1"/>
     </clipPath>
   </defs>
   <g transform="translate(-626 -151)">
     <circle cx="320" cy="320" r="320" transform="translate(626 151)" fill="#f2f2f2"/>
-    <g clip-path="url(#a-506)">
+    <g clipPath="url(#a-506)">
       <path d="M581.722,260.562S595.577,365,574.262,376.728s126.823,12.789,126.823,12.789-33.038-90.588-18.118-118.3Z" transform="translate(318.813 155.394)" fill="#ffb9b9"/>
       <circle cx="73.536" cy="73.536" r="73.536" transform="translate(881.887 324.39)" fill="#ffb9b9"/>
       <path d="M809.257,390.045l-12.32,56.1-26.05,118.69-.78,6.5-8.99,75.25-5.98,49.99-4.01,33.58c-24.38,12.53-42.05,21.18-42.05,21.18s-1.52-7.62-3.97-17.37c-17.11,5.13-48.77,13.64-75.6,15.34,9.77,10.89-141.12-266.12-146.91-303.16-4.66-29.81-8.16-55-8.9-60.36-.1-.7-.15-1.06-.15-1.06l112.43-49.68c7.99,18.53,45.3,24.1,45.3,24.1,30.91-2.13,55.14-18.43,55.14-18.43Z" transform="translate(318.813 155.394)" fill="#6c63ff"/>

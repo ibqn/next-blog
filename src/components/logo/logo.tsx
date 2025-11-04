@@ -14,13 +14,13 @@ export const Logo = () => {
                 transform="translate(626 151)"
                 fill="none"
                 stroke="#707070"
-                stroke-width="1"
+                strokeWidth="1"
               />
             </clipPath>
           </defs>
           <g transform="translate(-626 -151)">
             <circle cx="320" cy="320" r="320" transform="translate(626 151)" fill="#f2f2f2" />
-            <g clip-path="url(#a-506)">
+            <g clipPath="url(#a-506)">
               <path
                 d="M581.722,260.562S595.577,365,574.262,376.728s126.823,12.789,126.823,12.789-33.038-90.588-18.118-118.3Z"
                 transform="translate(318.813 155.394)"
